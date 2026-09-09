@@ -84,10 +84,28 @@
     gap: 20px;
   }
   .card {
+    display: flex;
+    flex-direction: column;
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 20px;
     padding: 28px 24px;
+  }
+  .card-wide {
+    grid-column: span 2;
+  }
+  .card ul {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    margin: 10px 0 0;
+    padding-left: 1.3em;
+    line-height: 1.75;
+  }
+  .card li {
+    margin-bottom: 4px;
+  }
+  .card li strong {
+    color: var(--ink);
   }
   .badge {
     width: 52px;
@@ -135,7 +153,11 @@
   .card-shot {
     display: block;
     width: 100%;
-    margin-top: 18px;
+    /* margin-top:auto pushes the image to the bottom of the (grid-stretched,
+       equal-height) card, so screenshots line up across cards in the same
+       row regardless of how long each card's description text is. */
+    margin-top: auto;
+    padding-top: 18px;
     border-radius: 16px;
     border: 1px solid var(--border);
     box-shadow: 0 16px 32px rgba(20,20,40,0.14);
@@ -264,7 +286,7 @@
         <img class="card-shot" src="screenshots/events.png" alt="イベント画面のスクリーンショット">
       </div>
 
-      <div class="card">
+      <div class="card card-wide">
         <div class="badge">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2 4 5v6c0 5.25 3.4 9.74 8 11 4.6-1.26 8-5.75 8-11V5l-8-3Z"/>
@@ -272,15 +294,13 @@
         </div>
         <h3>こんな使い方も・・・</h3>
         <p>顧客、見込み客のグループを作り、該当する組織をグループに所属させます。見込み客が顧客になった場合は、組織毎まとめて一括で顧客グループへ移動することができます。</p>
-        <p>グループ　ー＞　組織　ー＞　部署　の3階層まで使えるため、会社以外の情報も工夫すればスッキリと分類管理できます。
-            例えば、以下の様な分類管理が可能です。<br>
-            <ul>
-            <li>グループ：「自社」、組織：「営業所名」、部署：「部署名」</li>
-            <li>グループ：「レストラン」、組織：「地域名」、部署：「料理のカテゴリ」</li>
-            <li>グループ：「友達」、組織：「高校/大学など」</li>
-            <li>グループ：「出張」、組織：「ホテル」、部署：「地域名」</li>
-            </ul>
-          </p>
+        <p>グループ ー＞ 組織 ー＞ 部署 の3階層まで使えるため、会社以外の情報も工夫すればスッキリと分類管理できます。例えば、以下の様な分類管理が可能です。</p>
+        <ul>
+          <li>グループ：「自社」、組織：「営業所名」、部署：「部署名」</li>
+          <li>グループ：「レストラン」、組織：「地域名」、部署：「料理のカテゴリ」</li>
+          <li>グループ：「友達」、組織：「高校/大学など」</li>
+          <li>グループ：「出張」、組織：「ホテル」、部署：「地域名」</li>
+        </ul>
       </div>
 
     </div>
