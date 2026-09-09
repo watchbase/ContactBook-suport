@@ -131,6 +131,42 @@
     display: inline-block;
   }
 
+  /* Screenshots */
+  .screens {
+    max-width: 1000px;
+    margin: 8px auto 0;
+    padding: 20px 24px 60px;
+  }
+  .screens h2 {
+    text-align: center;
+    font-size: clamp(22px, 4vw, 28px);
+    margin: 0 0 40px;
+  }
+  .screens-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 28px;
+  }
+  .screens-grid figure {
+    margin: 0;
+    width: 220px;
+    text-align: center;
+  }
+  .screens-grid img {
+    display: block;
+    width: 100%;
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    box-shadow: 0 24px 44px rgba(20,20,40,0.16);
+  }
+  .screens-grid figcaption {
+    margin-top: 14px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+
   /* Privacy strip */
   .privacy-strip {
     max-width: 1000px;
@@ -249,6 +285,24 @@
         <p>各画面の左下にある「？」ボタンから、その画面でできることをいつでも確認できます。初回起動時のチュートリアルもご用意しています。</p>
       </div>
 
+    </div>
+  </section>
+
+  <section class="screens">
+    <h2 class="display">実際の画面</h2>
+    <div class="screens-grid">
+      <figure>
+        <img src="screenshots/groups.png" alt="グループ一覧画面のスクリーンショット">
+        <figcaption>グループでスッキリ整理</figcaption>
+      </figure>
+      <figure>
+        <img src="screenshots/companies.png" alt="組織一覧画面のスクリーンショット">
+        <figcaption>組織ごとにまとめて表示</figcaption>
+      </figure>
+      <figure>
+        <img src="screenshots/events.png" alt="イベント画面のスクリーンショット">
+        <figcaption>訪問・電話・来客の予定を管理</figcaption>
+      </figure>
     </div>
   </section>
 
