@@ -131,10 +131,14 @@
     display: inline-block;
   }
 
-  /* Screenshot embedded in a feature card */
+  /* Screenshot embedded in a feature card. Source screenshots have slightly
+     different aspect ratios, so crop them all to a shared ratio from the top. */
   .card-shot {
     display: block;
     width: 100%;
+    aspect-ratio: 1206 / 1350;
+    object-fit: cover;
+    object-position: top;
     margin-top: 18px;
     border-radius: 16px;
     border: 1px solid var(--border);
