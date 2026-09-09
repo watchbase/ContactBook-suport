@@ -3,88 +3,276 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>プライバシーポリシー | アポ帳</title>
+<title>アポ帳について</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --indigo: #2E4EAE;
+    --indigo-dark: #1B2E70;
+    --cream: #F4F1E8;
+    --ink: #1c1e24;
+    --ink-soft: #565b66;
+    --red: #D6473C;
+    --cyan: #2098BF;
+    --green: #2E8B57;
+    --card-bg: #ffffff;
+    --page-bg: #FBFAF6;
+    --border: #e7e2d5;
+    --icon-color: var(--indigo);
+    --badge-bg: rgba(46,78,174,0.12);
+  }
+  * { box-sizing: border-box; }
   body {
+    margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Segoe UI", sans-serif;
-    line-height: 1.8;
-    color: #1c1e24;
-    background: #f5f2eb;
-    max-width: 720px;
+    color: var(--ink);
+    background: var(--page-bg);
+    line-height: 1.75;
+  }
+  .display {
+    font-family: "Zen Maru Gothic", -apple-system, "Hiragino Kaku Gothic ProN", sans-serif;
+  }
+  a { color: var(--indigo); }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(160deg, var(--indigo), var(--indigo-dark));
+    color: #fff;
+    padding: 72px 24px 88px;
+    text-align: center;
+  }
+  .icon {
+    width: 108px;
+    height: 108px;
+    border-radius: 26px;
+    margin: 0 auto 28px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+    overflow: hidden;
+    display: block;
+  }
+  .icon svg { display: block; width: 100%; height: 100%; }
+  .hero h1 {
+    font-size: clamp(30px, 6vw, 44px);
+    font-weight: 900;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+  .hero p.tagline {
+    font-size: clamp(16px, 3vw, 19px);
+    color: #dbe3fa;
     margin: 0 auto;
-    padding: 40px 24px 80px;
+    max-width: 34em;
+    text-wrap: balance;
   }
-  h1 {
-    font-size: 26px;
-    margin-bottom: 4px;
+
+  /* Features */
+  .features {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 64px 24px 20px;
   }
-  .updated {
-    color: #6c7078;
-    font-size: 14px;
-    margin-bottom: 32px;
+  .features h2 {
+    text-align: center;
+    font-size: clamp(22px, 4vw, 28px);
+    margin: 0 0 40px;
   }
-  h2 {
-    font-size: 18px;
-    margin-top: 36px;
-    border-bottom: 1px solid #e1dcd0;
-    padding-bottom: 6px;
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
   }
-  a { color: #24409a; }
-  ul { padding-left: 1.2em; }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px 24px;
+  }
+  .badge {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    background: var(--badge-bg);
+    color: var(--icon-color);
+  }
+  .badge svg { width: 26px; height: 26px; }
+  .card h3 {
+    font-size: 17px;
+    margin: 0 0 8px;
+  }
+  .card p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* Event dot legend, reused for the calendar feature card */
+  .legend {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .legend i {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  /* Privacy strip */
+  .privacy-strip {
+    max-width: 1000px;
+    margin: 24px auto 0;
+    padding: 0 24px 64px;
+  }
+  .privacy-card {
+    background: #EAF3EC;
+    border: 1px solid #cfe3d3;
+    border-radius: 20px;
+    padding: 26px 28px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .privacy-card .badge { background: rgba(46,139,87,0.14); color: var(--green); margin-bottom: 0; flex-shrink: 0; }
+  .privacy-card h3 { margin: 0 0 4px; font-size: 16px; }
+  .privacy-card p { margin: 0; font-size: 14px; color: var(--ink-soft); }
+
+  footer {
+    text-align: center;
+    padding: 32px 24px 48px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--ink-soft); text-decoration: underline; }
+  footer .links { margin-bottom: 10px; }
+  footer .links a { margin: 0 10px; color: var(--indigo); text-decoration: none; }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #eef0f6;
+      --ink-soft: #a7acb8;
+      --card-bg: #1b1d24;
+      --page-bg: #121317;
+      --border: #2a2d36;
+      --icon-color: #9db2f2;
+      --badge-bg: rgba(157,178,242,0.16);
+    }
+    .privacy-card { background: #16261c; border-color: #23392a; }
+    .privacy-card .badge { color: #6fcf97; background: rgba(111,207,151,0.16); }
+  }
 </style>
 </head>
 <body>
-  <h1>プライバシーポリシー</h1>
-  <p class="updated">最終更新日: 2026年9月8日</p>
 
-  <p>
-    本ポリシーは、アプリ「アポ帳」（以下「本アプリ」といいます）における、
-    利用者の情報の取り扱いについて説明するものです。
-  </p>
+  <section class="hero">
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2E4EAE"/>
+            <stop offset="1" stop-color="#1B2E70"/>
+          </linearGradient>
+        </defs>
+        <rect width="1024" height="1024" fill="url(#g1)"/>
+        <rect x="174.08" y="655.36" width="675.84" height="245.76" rx="71.68" fill="#F4F1E8" fill-opacity="0.12" stroke="#F4F1E8" stroke-opacity="0.4" stroke-width="15.36"/>
+        <circle cx="512" cy="327.68" r="122.88" fill="#F4F1E8"/>
+        <path d="M296.96,604.16 c20.48,-143.36 122.88,-204.8 215.04,-204.8 s194.56,61.44 215.04,204.8 z" fill="#F4F1E8"/>
+        <rect x="337.92" y="727.04" width="102.4" height="102.4" rx="25.6" fill="#D6473C"/>
+        <rect x="460.8" y="727.04" width="102.4" height="102.4" rx="25.6" fill="#55C2E8"/>
+        <rect x="583.68" y="727.04" width="102.4" height="102.4" rx="25.6" fill="#2E8B57"/>
+      </svg>
+    </div>
+    <h1 class="display">アポ帳</h1>
+    <p class="tagline">会社ごとに連絡先を整理して、アポイントの相手を迷わず探せる連絡帳アプリ。</p>
+  </section>
 
-  <h2>本アプリが取得・送信する情報</h2>
-  <p>
-    本アプリは、利用者の連絡先・予定・その他の個人情報を、開発者を含む
-    いかなる外部のサーバーへも送信しません。すべての処理は利用者の端末内で完結します。
-    本アプリには広告・アクセス解析（アナリティクス）・利用状況の収集機能は含まれていません。
-  </p>
+  <section class="features">
+    <h2 class="display">できること</h2>
+    <div class="grid">
 
-  <h2>端末内で利用する情報</h2>
-  <ul>
-    <li>
-      <strong>連絡先</strong>: iOS標準の連絡先（Contacts）へのアクセス許可をいただいた上で、
-      連絡先の閲覧・追加・編集・削除、グループの管理を行います。これらのデータは
-      端末内の連絡先データベースに保存され、本アプリ独自のサーバーには保存されません。
-    </li>
-    <li>
-      <strong>カレンダー</strong>: 訪問・電話・来客などの予定を作成・閲覧するため、
-      iOS標準のカレンダー（EventKit）へのアクセス許可をいただいた上で利用します。
-    </li>
-    <li>
-      <strong>メモ</strong>: 連絡先ごとのメモは、iOSの制約により標準の連絡先アプリには
-      保存できないため、本アプリ内のみ（端末のアプリ領域内）に保存されます。
-    </li>
-    <li>
-      <strong>表示設定</strong>: グループのアイコン・色・並び順などの表示設定は、
-      端末内にのみ保存されます。
-    </li>
-  </ul>
+      <div class="card">
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3>グループでスッキリ整理</h3>
+        <p>連絡先をグループに分けて管理。アイコンや色は自由に変更でき、iCloud・Googleなど複数アカウントがある場合は自動でセクション分けされます。</p>
+      </div>
 
-  <h2>第三者への提供</h2>
-  <p>
-    本アプリは、利用者の情報を第三者に提供・共有することはありません。
-  </p>
+      <div class="card">
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M9 21v-6h6v6"/><path d="M9 11h.01"/><path d="M14 11h.01"/>
+          </svg>
+        </div>
+        <h3>組織ごとにまとめて表示</h3>
+        <p>同じ会社の連絡先は自動でひとまとめに。会社名の読み仮名も自動で提案され、複数人まとめて名称・読みを変更できます。</p>
+      </div>
 
-  <h2>お問い合わせ</h2>
-  <p>
-    本ポリシーに関するご質問は、以下の連絡先までお願いいたします。<br>
-    メール: <a href="mailto:watchbase@gmail.com">watchbase@gmail.com</a>
-  </p>
+      <div class="card">
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>
+          </svg>
+        </div>
+        <h3>訪問・電話・来客の予定を管理</h3>
+        <p>誰といつ会う予定か、カレンダー形式でひと目に。予定から担当者へワンタップで発信もできます。</p>
+        <div class="legend">
+          <span><i style="background:#D6473C"></i>訪問</span>
+          <span><i style="background:#55C2E8"></i>電話</span>
+          <span><i style="background:#2E8B57"></i>来客</span>
+        </div>
+      </div>
 
-  <h2>ポリシーの変更</h2>
-  <p>
-    本ポリシーの内容は、必要に応じて変更されることがあります。
-    重要な変更がある場合は、本ページ上で通知します。
-  </p>
+      <div class="card">
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 4 5v6c0 5.25 3.4 9.74 8 11 4.6-1.26 8-5.75 8-11V5l-8-3Z"/>
+          </svg>
+        </div>
+        <h3>迷ったらすぐヘルプ</h3>
+        <p>各画面の左下にある「？」ボタンから、その画面でできることをいつでも確認できます。初回起動時のチュートリアルもご用意しています。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="privacy-strip">
+    <div class="privacy-card">
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 4 5v6c0 5.25 3.4 9.74 8 11 4.6-1.26 8-5.75 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
+      <div>
+        <h3 class="display">データは端末内だけ</h3>
+        <p>連絡先やメモなどの情報は、すべて端末内で管理され、外部のサーバーに送信されることはありません。広告や利用状況の収集も一切行いません。</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="links">
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="mailto:watchbase@gmail.com">お問い合わせ</a>
+    </div>
+    &copy; 2026 watchbase
+  </footer>
+
 </body>
 </html>
